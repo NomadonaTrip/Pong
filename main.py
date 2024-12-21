@@ -1,7 +1,7 @@
 from turtle import Turtle, Screen
 from paddle import Paddle, PLAYERPOSITION, COMPUTERPOSITION
 from ball import Ball, BALLPOSITION
-from scoreboard import Score
+from scoreboard import Score, FONT
 
 #Create the screen
 screen = Screen()
@@ -33,11 +33,12 @@ player = Paddle(position = PLAYERPOSITION)
 computer = Paddle(position = COMPUTERPOSITION)
 ball = Ball()
 player_score = Score()
-player_score.goto(x= -30, y= 260)
+player_score.goto(x= 30, y= 260)
 player_score.write_score()
 computer_score = Score()
-computer_score.goto(x= 30, y= 260)
+computer_score.goto(x= -30, y= 260)
 computer_score.write_score()
+final_score = Score()
 
 
 
@@ -78,10 +79,14 @@ in_play = True
 while in_play:
     ball.goto(x=0, y= 0)
     turn()
-    if player_score.score >= 7 or computer_score.score >= 7:
+    if player_score.score >= 7:
+        final_score.write(arg=f"Player 2 wins.\n GAME OVER", font= FONT)
         in_play = False
-    else:
-        turn()
+    elif computer_score.score >= 7:
+        final_score.write(arg=f"Player 1 wins.\n GAME OVER", font= FONT)
+        in_play = False
+
+
 
 
 

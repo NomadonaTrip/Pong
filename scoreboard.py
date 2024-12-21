@@ -17,3 +17,6 @@ class Score(Turtle):
         self.write_score()
         # self.showturtle()
 
+    def game_over(self):
+        self.write("Game over")
+
