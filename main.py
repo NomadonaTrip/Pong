@@ -63,15 +63,15 @@ def turn():
         if ball.ycor() < -295 or ball.ycor() > 295:
             ball.bounce()
             # print("wall contact")
-        elif ball.xcor() > 360 and ball.distance(player) < 50:
+        elif ball.xcor() > 358 and ball.distance(player) < 50:
             # print("made contact")
             ball.bounce_y()
-        elif ball.xcor() < -360 and ball.distance(computer) < 50:
+        elif ball.xcor() < -358 and ball.distance(computer) < 50:
             ball.bounce_y()
-        elif ball.xcor() < -410:
+        elif ball.xcor() < -365:
             player_score.add_point()
             in_turn = False
-        elif ball.xcor() > 410:
+        elif ball.xcor() > 365:
             computer_score.add_point()
             in_turn = False
 
